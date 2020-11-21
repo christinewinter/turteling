@@ -25,23 +25,27 @@ def draw_one_flake(length, level):
 
 t = Turtle()
 screen = Screen()
-screen.bgcolor("#3659d9")
+# screen.bgcolor("#3659d9")
+filename = "koch_snowflake.eps"
 
-# defining the speed of the turtle#
+# defining the speed of the turtle
 t.speed(99999)
 length = 100.0
 level = 2
 t.pensize(8)
 t.hideturtle()
 
-
+# draw a snowflake circle
 for i in range(6):
-    t.pencolor("White")
+    t.pencolor("Black")
     draw_one_flake(length, level)
     t.left(120)
     t.forward(length/3)
     t.right(60)
     t.forward(length/3)
 
+# screen.exitonclick()
 
-screen.exitonclick()
+# save as svg
+cv = screen.getcanvas()
+cv.postscript(file=filename)
